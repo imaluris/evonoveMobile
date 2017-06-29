@@ -1,0 +1,17 @@
+{
+  "name": "evonovemobile",
+  "version": "1.0.0",
+  "description": "evonove for mobile devices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "imaluris",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-open": "^2.0.0",
+    "gulp-serve": "^1.4.0"
+  }
+}

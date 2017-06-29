@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>evonoveMobile</title>
+    <meta name="description" content="EvonoveMobile">
+    <script src="src/aframe.min.js"></script>
+    <script src="src/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+    <a-assets>
+      <a-asset-item id="Evonove" src="EvonoveTry.dae"></a-asset-item>
+      <a-asset-item id="Soffitto" src="Soffitto.dae"></a-asset-item>
+      <a-asset-item id="glassTransp-obj" src="EvonoveGlassTransparent.obj"></a-asset-item>
+      <a-asset-item id="glassOpaco-obj" src="EvonoveGlassOpaco.obj"></a-asset-item>
+      <a-asset-item id="Maniglie-obj" src="ManiglieMetallo.obj"></a-asset-item>
+      <a-asset-item id="Soffitto-obj" src="Soffitto.obj"></a-asset-item>
+      <a-mixin id="checkpoint"></a-mixin>
+      <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
+    </a-assets>
+    
+   
+
+    <a-entity obj-model="obj: #glassTransp-obj;" material="color: #87DFFF; transparent: true; opacity: 0.2;"></a-entity>
+    <a-entity obj-model="obj: #glassOpaco-obj;" material="color: #87DFFF; transparent: false; opacity: 0.9;"></a-entity>
+    <a-entity obj-model="obj: #Maniglie-obj;" material="color: #A5A5A5; metalness: 0.8;"></a-entity>
+    <a-entity obj-model="obj: #Soffitto-obj;" material="color: #white;"></a-entity>
+    <a-collada-model src="#Evonove"></a-collada-model>
+    <a-collada-model src="#Soffitto"></a-collada-model>
+
+    <a-entity camera="userHeight: 1.6"
+                universal-controls="movementControls: checkpoint"
+                checkpoint-controls="mode: animate">
+    <a-entity cursor
+                  position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                  material="color: #CCC; shader: flat;">
+    </a-entity>
+    </a-entity>
+
+
+      <!-- Checkpoints -->
+    <a-entity position="1 0 1">
+      <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="0 0 -5.2" color="#39BB82"></a-cylinder>
+      <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="3 0 0" color="#39BB82"></a-cylinder>
+      <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="-3 0 0" color="#39BB82"></a-cylinder>
+    </a-entity>
+
+    <a-sky color="black"></a-sky>
+    </a-scene>
+  <body>
+</html>
