@@ -3,6 +3,16 @@ var browserify = require('gulp-browserify');
 var serve = require('gulp-serve');
 var open = require('gulp-open');
  
+// Basic usage 
+gulp.task('build', function() {
+    // Single entry point to browserify 
+    gulp.src('./src/app.js')
+        .pipe(browserify({
+          insertGlobals : true,
+          debug : !gulp.env.production
+        }))
+        .pipe(gulp.dest('./build/js'))
+});
 
 gulp.task('serve', serve(['public', 'build']));
 
@@ -18,4 +28,4 @@ gulp.task('open', function(){
 
 
 
-gulp.task('start', ['serve', 'open']);
+gulp.task('start', ['build', 'serve', 'open']);
