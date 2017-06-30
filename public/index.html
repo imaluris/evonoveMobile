@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>evonoveMobile</title>
+    <meta name="description" content="EvonoveMobile">
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <a-scene>
+    <a-assets>
+      <a-asset-item id="Evonove" crossorigin="anonymous" src="public/EvonoveMobile.dae"></a-asset-item>
+      <a-asset-item id="Soffitto" crossorigin="anonymous" src="public/Soffitto.dae"></a-asset-item>
+      <a-asset-item id="porta" crossorigin="anonymous" src="public/PortaEntrata.dae"></a-asset-item>
+      <a-asset-item id="glassTransp-obj" crossorigin="anonymous" src="public/EvonoveGlassTransparentMobile.obj"></a-asset-item>
+      <a-asset-item id="glassOpaco-obj" crossorigin="anonymous" src="public/EvonoveGlassOpaco.obj"></a-asset-item>
+      <a-asset-item id="Maniglie-obj" crossorigin="anonymous" src="public/ManiglieMobile.obj"></a-asset-item>
+      <a-asset-item id="Soffitto-obj" crossorigin="anonymous" src="public/Soffitto.obj"></a-asset-item>
+      <a-mixin id="checkpoint"></a-mixin>
+      <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
+    </a-assets>
+    
+   
+
+    <a-entity obj-model="obj: #glassTransp-obj;" material="color: #87DFFF; transparent: true; opacity: 0.2;"></a-entity>
+    <a-entity obj-model="obj: #glassOpaco-obj;" material="color: #87DFFF; transparent: false; opacity: 0.9;"></a-entity>
+    <a-entity obj-model="obj: #Maniglie-obj;" material="color: #A5A5A5; metalness: 0.8;"></a-entity>
+    <a-entity obj-model="obj: #Soffitto-obj;" material="color: #white;"></a-entity>
+    <a-collada-model src="#Evonove"></a-collada-model>
+    <a-collada-model src="#Soffitto"></a-collada-model>
+    <a-collada-model src="#porta"></a-collada-model>
+
+    <a-entity camera
+                position="15 1.6 -3"
+                rotation="0 90 0"
+                universal-controls="movementControls: checkpoint"
+                checkpoint-controls="mode: animate">
+    <a-entity cursor
+                  position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                  material="color: #CCC; shader: flat;">
+    </a-entity>
+    </a-entity>
+
+
+      <!-- Checkpoints -->
+    <a-entity position="1 0 1">
+      <a-cylinder checkpoint="offset: 0 1.6 0" radius="0.5" height="0.1" position="10 0 -4" color="#39BB82"></a-cylinder>
+      <a-cylinder checkpoint="offset: 0 1.6 0" radius="0.5" height="0.1" position="3 0 0" color="#39BB82"></a-cylinder>
+      <a-cylinder checkpoint="offset: 0 1.6 0" radius="0.5" height="0.1" position="-3 0 0" color="#39BB82"></a-cylinder>
+      <a-box height="0.5" width="0.2" depth="0.2" position="11.5 0.9 -3.5" color="red"></a-box>
+
+      <script>
+        var box = document.querySelector('a-box');
+        var door = document.querySelector('#porta');
+        box.addEventListener("mouseenter",function()
+        {
+          console.log("entrato")
+        });
+      </script>
+    </a-entity>
+
+    <a-sky color="black"></a-sky>
+    </a-scene>
+  <body>
+</html>
