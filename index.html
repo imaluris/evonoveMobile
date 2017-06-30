@@ -50,6 +50,15 @@
       <a-cylinder checkpoint="offset: 0 1.6 0" radius="0.5" height="0.1" position="3 0 0" color="#39BB82"></a-cylinder>
       <a-cylinder checkpoint="offset: 0 1.6 0" radius="0.5" height="0.1" position="-3 0 0" color="#39BB82"></a-cylinder>
       <a-box height="0.5" width="0.2" depth="0.2" position="11.5 0.9 -3.5" color="red"></a-box>
+
+      <script>
+        var box = document.querySelector('a-box');
+        var door = document.querySelector('#porta');
+        box.addEventListener("mouseenter",function()
+        {
+          console.log("entrato")
+        });
+      </script>
     </a-entity>
 
     <a-sky color="black"></a-sky>
